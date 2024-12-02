@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Information System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script src="{{ url_for('static', filename='script.js') }}" defer></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Student Information System</h1>
+            <div>
+                <!-- Add New Student Button -->
+                <a href="javascript:void(0);" class="btn add-btn" onclick="openAddModal()">Add New Student</a>
+
+                <!-- Search Bar -->
+                <form action="/search" method="GET" style="display: inline-block;">
+                    <input type="text" name="query" placeholder="Search by name..." class="search-bar">
+                    <button type="submit" class="btn search-btn">Search</button>
+                </form>
+            </div>
+        </header>
+
+        <!-- Displaying Flash Messages -->
+        {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+        <div class="flash-messages">
+            {% for category, message in messages %}
+            <div class="flash {{ category }}">{{ message }}</div>
+            {% endfor %}
+        </div>
+        {% endif %}
+        {% endwith %}
+
+        <!-- Student Table -->
+        <table class="student-table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Age</th>
+                    <th>Gender</th>
+                    <th>Email</th>
+                    <th>Department</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for student in students %}
+                    <tr>
+                        <td>{{ student.id }}</td>
+                        <td>{{ student.name }}</td>
+                        <td>{{ student.age }}</td>
+                        <td>{{ student.gender }}</td>
+                        <td>{{ student.email }}</td>
+                        <td>{{ student.department }}</td>
+                        <td>
+                            <a href="/edit/{{ student.id }}" class="btn edit-btn">Edit</a>
+                            <form action="/delete/{{ student.id }}" method="POST" style="display:inline;">
+                                <button type="submit" class="btn delete-btn">Delete</button>
+                            </form>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Add/Edit Student Modal -->
+    <div class="modal" id="studentModal" style="display:none;">
+        <div class="modal-content">
+            <h2>Add Student</h2>
+            <form id="studentForm" action="/add" method="POST">
+                <input type="hidden" id="studentId" name="id">
+                <input type="text" id="studentName" name="name" placeholder="Name" required>
+                <input type="number" id="studentAge" name="age" placeholder="Age" required>
+                <select id="studentGender" name="gender" required>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                </select>
+                <input type="email" id="studentEmail" name="email" placeholder="Email" required>
+                <input type="text" id="studentDepartment" name="department" placeholder="Department" required>
+                <button type="submit" class="btn submit-btn">Save</button>
+                <button type="button" class="btn close-btn" onclick="closeModal()">Cancel</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

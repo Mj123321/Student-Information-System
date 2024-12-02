@@ -1,0 +1,150 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f8ff; /
+}
+
+.container {
+    width: 80%;
+    margin: 50px auto;
+    text-align: center;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #28a745; 
+    color: white;
+    border-radius: 8px;
+}
+
+h1 {
+    font-size: 36px;
+    font-weight: bold;
+    color: #fff;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.btn {
+    background-color: #ff4d4d; 
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.btn:hover {
+    background-color: #ff2a2a;
+}
+
+/* Search Bar Styles */
+.search-bar {
+    padding: 8px 15px;
+    font-size: 16px;
+    border: 2px solid #ff4d4d;
+    border-radius: 5px;
+    width: 200px;
+    margin-right: 10px;
+}
+
+.search-btn {
+    background-color: #ff4d4d;
+    color: white;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.search-btn:hover {
+    background-color: #ff2a2a;
+}
+
+.student-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 30px;
+}
+
+.student-table th, .student-table td {
+    padding: 10px;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+
+.student-table th {
+    background-color: #ff4d4d; 
+    color: white;
+}
+
+.student-table tr:nth-child(even) {
+    background-color: #f8d7da; 
+}
+
+.student-table tr:nth-child(odd) {
+    background-color: #ffffff;
+}
+
+.student-table td {
+    font-size: 16px;
+    color: #333;
+}
+
+.student-table .btn {
+    background-color: #28a745;
+    padding: 5px 15px;
+    margin: 5px;
+}
+
+
+/* Modal Style */
+.modal {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    width: 60%;
+    height: auto;
+}
+
+.modal-content {
+    padding: 20px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.modal input, .modal select {
+    margin: 10px 0;
+    padding: 10px;
+    width: 80%;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+}
+
+.modal button {
+    margin-top: 15px;
+    padding: 10px 20px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
+
+.modal button:hover {
+    background-color: #218838;
+}

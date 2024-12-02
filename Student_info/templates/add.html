@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add New Student</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script src="{{ url_for('static', filename='script.js') }}" defer></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Add New Student</h1>
+            <a href="{{ url_for('index') }}" class="btn back-btn">Back to Student List</a>
+        </header>
+
+        <!-- Add New Student Form -->
+<div class="modal" id="studentModal" style="display:none;">
+    <div class="modal-content">
+        <h2>Add Student</h2>
+        <form id="studentForm" action="/add" method="POST">
+            <input type="hidden" id="studentId" name="id">
+            <input type="text" id="studentName" name="name" placeholder="Name" required>
+            <input type="number" id="studentAge" name="age" placeholder="Age" required>
+            <select id="studentGender" name="gender" required>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+            </select>
+            <input type="email" id="studentEmail" name="email" placeholder="Email" required>
+            <input type="text" id="studentDepartment" name="department" placeholder="Department" required>
+            <button type="submit" class="btn submit-btn">Save</button>
+            <button type="button" class="btn close-btn" onclick="closeModal()">Cancel</button>
+        </form>
+    </div>
+</div>
+
+    </div>
+</body>
+</html>
